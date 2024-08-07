@@ -1,0 +1,36 @@
+body {
+    background-color: rgba(240, 230, 140, 0.114);
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 25px;
+    background-color: khaki;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns:
+        minmax(10px, 1fr) minmax(10px, 1fr) minmax(10px, 1fr);
+    gap: 1em;
+}
+
+.canvas {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+img {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.canvas-container {
+    background-color: black;
+    border-radius: 25px;
+    overflow: hidden;
+}

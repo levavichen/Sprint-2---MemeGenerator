@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://kit.fontawesome.com/77242c873d.js" crossorigin="anonymous"></script>
+    <title>Meme Generator</title>
+</head>
+
+<body onload="onInit()">
+
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo">Boo</div>
+            <nav class="nav">
+                <a onclick="onGallery()" class="gallery-section">Gallery</a>
+            </nav>
+        </header>
+
+        <section class="gallery">
+            <div class="gallery-container"></div>
+        </section>
+
+        <section class="canvas">
+            <div class="canvas-container">
+                <canvas width="500" height="500" onclick="onClickedLine(event)"> </canvas>
+            </div>
+
+            <div class="canvas-editor">
+
+                <section class="set-text">
+                    <label for="text"></label>
+                    <input type="text" id="text" name="text" placeholder="Add Text Here" oninput="onSetLineText()" />
+                    <datalist id="text"></datalist>
+                </section>
+
+                <section class="lines-actions">
+                    <button class="fa-solid fa-plus" onclick="onAddLine()"></button>
+                    <button class="fa-solid fa-repeat" onclick="onSwitchLine()"></button>
+                    <button class="fa-solid fa-trash" onclick="onDeleteLine()"></button>
+                </section>
+
+                <section class="text-font-design">
+                    <button class="increase" onclick="onIncreaseFont()">A +</button>
+                    <button class="decrease" onclick="onDecreaseFont()">A -</button>
+                    <select name="font-family" id="font-family" onchange="onFontSelector()">
+                        <option value="Arial">Arial</option>
+                        <option value="Calibri">Calibri</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Tahoma">Tahoma</option>
+                    </select>
+                    <select name="text-size" id="font-size" onchange="onFontSizeSelector()">
+                        <option value="font-size">Font Size</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                    </select>
+                </section>
+
+                <section class="text-position">
+                    <button class="fa-solid fa-arrow-up" onclick="onMoveLine('up')"></button>
+                    <button class="fa-solid fa-arrow-down" onclick="onMoveLine('down')"></button>
+                </section>
+
+                <section class="text-alignment">
+                    <button class="fa-solid fa-align-left" onclick="onSetAlignment('left')"></button>
+                    <button class="fa-solid fa-align-center" onclick="onSetAlignment('center')"></button>
+                    <button class="fa-solid fa-align-right" onclick="onSetAlignment('right')"></button>
+                </section>
+
+                <section class="text-color">
+                    <label for="strokeClr" class="fa-solid fa-paintbrush"></label>
+                    <input type="color" id="strokeColor" name="strokeColor" value="#dcad2e"
+                        oninput="onSelectedStrokeClr()" />
+
+                    <label for="fillClr" class="fa-solid fa-fill"></label>
+                    <input type="color" id="fillClr" name="fillClr" value="#dcad2e" oninput="onSelectedFillClr()" />
+                </section>
+
+                <section class="import-buttons">
+                    <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
+                </section>
+
+            </div>
+    </div>
+    </section>
+    </div>
+    </div>
+
+    <script src="JS/services.js/memeService.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/memeController.js"></script>
+    <script src="JS/galleryController.js"></script>
+
+
+</body>
+
+</html>
