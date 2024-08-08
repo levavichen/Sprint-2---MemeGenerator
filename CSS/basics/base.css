@@ -11,6 +11,7 @@ h6 {
     margin: 0
 }
 
-font{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+html {
+    font-family: lato, sans-serif;
+    font-weight: bold;
 }

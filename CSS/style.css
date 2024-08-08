@@ -2,3 +2,7 @@
 @import url(basics/layout.css);
 @import url(cmps/main-header.css);
 @import url(cmps/canvas-editor.css);
+@import url(setup/mq.css);
+@import url(setup/vars.css);
+@import url(setup/typography.css);
+@import url(cmps/gallery.css);

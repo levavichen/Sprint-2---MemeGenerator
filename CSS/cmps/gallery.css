@@ -1,0 +1,8 @@
+.gallery-container img {
+    transition: filter 0.4s ease;
+}
+
+.gallery-container img:hover {
+    filter: grayscale(100%);
+    cursor: pointer;
+}

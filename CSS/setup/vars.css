@@ -1,0 +1,10 @@
+:root {
+    /* pallete */
+    --primary-1: #e68269cd;
+    --primary-base: #131842;
+    --primary--1: #ecceae9e;
+    --primary--2: #FBF6E2;
+    
+    /* layout vars */
+    --card-layout-padding: 60px;
+  }

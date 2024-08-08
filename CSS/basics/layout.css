@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(240, 230, 140, 0.114);
+    background-color: var(--primary--2);
     text-align: center;
 }
 
@@ -8,13 +8,15 @@ body {
     flex-direction: column;
     padding: 1em;
     border-radius: 25px;
-    background-color: khaki;
+    background-color: var( --primary-1);
+    box-shadow: 0 0 15px #e3694b;
+
 }
 
 .gallery-container {
     display: grid;
     grid-template-columns:
-        minmax(10px, 1fr) minmax(10px, 1fr) minmax(10px, 1fr);
+        minmax(10px, 1fr);
     gap: 1em;
 }
 
@@ -24,13 +26,17 @@ body {
     gap: 2em;
 }
 
+
 img {
     max-width: 100%;
     box-sizing: border-box;
 }
 
 .canvas-container {
-    background-color: black;
+    background-color: var(--primary--1);
+    border: 1em solid var(--primary--1);
     border-radius: 25px;
     overflow: hidden;
+    box-shadow: 0 0 15px #ffdfbd;
+
 }

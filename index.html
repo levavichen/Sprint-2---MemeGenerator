@@ -13,7 +13,7 @@
 
     <div class="main-container">
         <header class="main-header">
-            <div class="logo">Boo</div>
+            <div class="fa-solid fa-mask"></div>
             <nav class="nav">
                 <a onclick="onGallery()" class="gallery-section">Gallery</a>
                 <a onclick="onEditor()" class="editor-section">Meme Editor</a>
@@ -75,12 +75,16 @@
                 </section>
 
                 <section class="text-color">
-                    <label for="strokeClr" class="fa-solid fa-paintbrush"></label>
-                    <input type="color" id="strokeColor" name="strokeColor" value="#dcad2e"
-                        oninput="onSelectedStrokeClr()" />
+                    <section>
+                        <label for="strokeClr" class="fa-solid fa-paintbrush"></label>
+                        <input type="color" id="strokeColor" name="strokeColor" value="#dcad2e"
+                            oninput="onSelectedStrokeClr()" />
+                    </section>
+                    <section>
+                        <label for="fillClr" class="fa-solid fa-fill"></label>
+                        <input type="color" id="fillClr" name="fillClr" value="#dcad2e" oninput="onSelectedFillClr()" />
+                    </section>
 
-                    <label for="fillClr" class="fa-solid fa-fill"></label>
-                    <input type="color" id="fillClr" name="fillClr" value="#dcad2e" oninput="onSelectedFillClr()" />
                 </section>
 
                 <section class="import-buttons">

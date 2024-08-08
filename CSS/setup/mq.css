@@ -1,0 +1,15 @@
+
+
+@media (min-width: 640px) {
+    .gallery-container {
+        grid-template-columns:
+            repeat(2, minmax(10px, 1fr))
+    }
+}
+
+@media (min-width: 880px) {
+    .gallery-container {
+        grid-template-columns:
+            repeat(3, minmax(10px, 1fr))
+    }
+}

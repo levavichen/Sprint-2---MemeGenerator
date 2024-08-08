@@ -16,7 +16,6 @@ function renderCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-
     window.addEventListener('resize', resizeCanvas)
     renderMeme()
 }
@@ -24,11 +23,11 @@ function renderCanvas() {
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
     console.log(elContainer)
-    gElCanvas.width = elContainer.clientWidth - 10
-    gElCanvas.height = elContainer.clientHeight - 10
-    console.log(gElCanvas)
+    gElCanvas.width = elContainer.clientWidth
+    gElCanvas.height = elContainer.clientHeight
 
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+    renderMeme()
+
 
 }
 
