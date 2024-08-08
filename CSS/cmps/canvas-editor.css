@@ -87,15 +87,17 @@ button:hover {
     background-color: #d6d6d6a0;
 }
 
-.import-buttons a {
+.import-buttons > a {
     text-decoration: none;
     border: 1em solid #d08cb6;
     border-radius: 25px;
     background-color: #d08cb6;
     color: white;
-}
+    
+}   
 
 .import-buttons a:hover {
     border: 1em solid #d0adc3;
     background-color: #d0adc3;
+    cursor: pointer;
 }
