@@ -35,9 +35,7 @@ var gMeme = {
             x: 175,
             y: 100,
             isSelected: false,
-            align: 'start',
             font: 'Arial'
-
         },
     ]
 }
@@ -95,8 +93,11 @@ function addLine() {
 
 function switchLine() {
     const { selectedLineIdx, lines } = gMeme
+    lines.forEach(line => line.isSelected = false)
+
 
     gMeme.selectedLineIdx = selectedLineIdx === 0 ? 1 : 0
+    lines[gMeme.selectedLineIdx].isSelected = true
 }
 
 function getTextDimensions(currLine) {
@@ -143,7 +144,7 @@ function fontSizeSelector(selectedFontSie) {
 
 function setAlignment(selectedAlignment) {
     const { selectedLineIdx, lines } = gMeme
-    lines[selectedLineIdx].align = selectedAlignment
+    lines[selectedLineIdx].x = selectedAlignment
 }
 
 function deleteLine() {

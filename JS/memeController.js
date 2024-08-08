@@ -11,14 +11,7 @@ function renderMeme() {
 
 function drawImg(imgId) {
     const img = gImgs.find(img => img.id === imgId)
-    // const elImg = new Image()
-    // elImg.src = img.url
 
-    // elImg.onload = () => {
-    //     gCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
-    // }
-
-    // console.log(img)
     return img
 }
 
@@ -30,10 +23,10 @@ function renderText() {
         gCtx.strokeStyle = line.strokeClr
         gCtx.fillStyle = line.fillClr
         gCtx.font = `${line.size}px ${line.font}`
-        gCtx.textAlign = line.align
 
         gCtx.fillText(line.txt, line.x, line.y)
         gCtx.strokeText(line.txt, line.x, line.y)
+        if (line.isSelected) renderFrame()
     })
 }
 
@@ -48,14 +41,12 @@ function onSelectedStrokeClr() {
     const colorValue = document.querySelector('#strokeColor').value
     selectedStrokeColor(colorValue)
     renderMeme()
-    renderFrame()
 }
 
 function onSelectedFillClr() {
     const colorValue = document.querySelector('#fillClr').value
     selectedFillColor(colorValue)
     renderMeme()
-    renderFrame()
 }
 
 
@@ -64,7 +55,6 @@ function onSetLineText() {
     const elText = document.querySelector('#text')
     setLineTxt(elText.value, selectedLineIdx)
     renderMeme()
-    renderFrame()
 }
 
 function onDownloadMeme(elLink) {
@@ -75,13 +65,11 @@ function onDownloadMeme(elLink) {
 function onIncreaseFont() {
     increaseFont()
     renderMeme()
-    renderFrame()
 }
 
 function onDecreaseFont() {
     decreaseFont()
     renderMeme()
-    renderFrame()
 }
 
 function onAddLine() {
@@ -99,19 +87,15 @@ function onAddLine() {
         fillClr: '#ffffff',
         x: 175,
         y: 450,
-        isSelected: false,
-        align: 'start',
+        isSelected: true,
         font: 'Arial'
     })
 
     gMeme.selectedLineIdx = 1
-    let currText = lines[selectedLineIdx].txt
-    lines[selectedLineIdx].isSelected = true
-    elText.value = currText
+    elText.value = ''
 
     addLine()
     renderMeme()
-    renderFrame()
 }
 
 function onSwitchLine() {
@@ -122,7 +106,6 @@ function onSwitchLine() {
     elText.value = currText
 
     renderMeme()
-    renderFrame()
 }
 
 function renderFrame() {
@@ -145,7 +128,6 @@ function onClickedLine(ev) {
     lines[clickedLineIdx].isSelected = true
     renderIsClickedLine(clickedLineIdx)
     renderMeme()
-    renderFrame()
 }
 
 function renderIsClickedLine(lineIdx) {
@@ -169,29 +151,36 @@ function onFontSelector() {
     const fontSelected = document.querySelector('#font-family').value
     fontSelector(fontSelected)
     renderMeme()
-    renderFrame()
 }
 
 function onFontSizeSelector() {
     const fontSizeSelected = document.querySelector('#font-size').value
     fontSizeSelector(fontSizeSelected)
     renderMeme()
-    renderFrame()
 }
 
 function onSetAlignment(selectedAlignment) {
+    const { selectedLineIdx, lines } = gMeme
+    const currLine = lines[selectedLineIdx]
+    const textWidth = gCtx.measureText(currLine.txt).width
+
+    let position
+
     if (selectedAlignment === 'left') {
-        setAlignment(selectedAlignment)
+        position = 10
+        setAlignment(position)
         renderMeme()
         return
     }
     if (selectedAlignment === 'center') {
-        setAlignment(selectedAlignment)
+        position = (gElCanvas.width / 2) - (textWidth / 2)
+        setAlignment(position)
         renderMeme()
         return
     }
     if (selectedAlignment === 'right') {
-        setAlignment(selectedAlignment)
+        position = gElCanvas.width - textWidth - 10
+        setAlignment(position)
         renderMeme()
         return
     }
@@ -200,11 +189,9 @@ function onSetAlignment(selectedAlignment) {
 function onDeleteLine() {
     deleteLine()
     renderMeme()
-    renderFrame()
 }
 
 function onMoveLine(direction) {
     moveLine(direction)
     renderMeme()
-    renderFrame()
 }

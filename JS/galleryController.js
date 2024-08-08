@@ -16,19 +16,7 @@ function renderGallery() {
 function onImgSelect(imgId) {
 
     setImg(imgId)
-    onGallery()
+    onEditor()
     renderMeme()
 }
 
-function onGallery() {
-    const elGallery = document.querySelector('.gallery')
-    const gElCanvas = document.querySelector('.canvas')
-
-    if (elGallery.style.display === 'none') {
-        elGallery.style.display = 'grid'
-        gElCanvas.style.display = 'none'
-    } else {
-        elGallery.style.display = 'none'
-        gElCanvas.style.display = 'flex'
-    }
-}
