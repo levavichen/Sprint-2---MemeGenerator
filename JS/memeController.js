@@ -33,8 +33,11 @@ function renderText() {
 function renderImg(img) {
     const elImg = new Image()
     elImg.src = img.url
-    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-    gCtx.drawImage(elImg, 0, 0, elImg.width, elImg.height)
+
+
+        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+        gCtx.drawImage(elImg, 0, 0, elImg.width, elImg.height)
+
 }
 
 function onSelectedStrokeClr() {
@@ -194,4 +197,29 @@ function onDeleteLine() {
 function onMoveLine(direction) {
     moveLine(direction)
     renderMeme()
+}
+
+function resetMemeEditor() {
+    const elText = document.querySelector('#text')
+    elText.value = ''
+
+
+    gMeme.lines = [
+        {
+            id: 0,
+            txt: 'Enter Text',
+            size: 40,
+            width: 2,
+            strokeClr: '#000000',
+            fillClr: '#ffffff',
+            x: 175,
+            y: 100,
+            isSelected: false,
+            font: 'Arial'
+        },
+    ]
+
+    gMeme.selectedLineIdx = 0
+
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
 }

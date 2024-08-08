@@ -14,7 +14,8 @@ function renderGallery() {
 }
 
 function onImgSelect(imgId) {
-
+    
+    resetMemeEditor()
     setImg(imgId)
     onEditor()
     renderMeme()

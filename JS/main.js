@@ -4,8 +4,8 @@ let gElCanvas
 let gCtx
 
 function onInit() {
-    const elGallery = document.querySelector('.gallery')
-    elGallery.style.display = 'none'
+    const elCanvas = document.querySelector('.canvas')
+    elCanvas.style.display = 'none'
 
     renderGallery()
     renderCanvas()
@@ -15,16 +15,21 @@ function onInit() {
 function renderCanvas() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
 
+
+    window.addEventListener('resize', resizeCanvas)
     renderMeme()
 }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
+    console.log(elContainer)
     gElCanvas.width = elContainer.clientWidth - 10
     gElCanvas.height = elContainer.clientHeight - 10
+    console.log(gElCanvas)
+
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+
 }
 
 function onGallery() {

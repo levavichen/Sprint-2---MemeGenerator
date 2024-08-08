@@ -95,7 +95,6 @@ function switchLine() {
     const { selectedLineIdx, lines } = gMeme
     lines.forEach(line => line.isSelected = false)
 
-
     gMeme.selectedLineIdx = selectedLineIdx === 0 ? 1 : 0
     lines[gMeme.selectedLineIdx].isSelected = true
 }
@@ -168,6 +167,3 @@ function moveLine(direction) {
     }
 }
 
-function resetSelection() {
-
-}
