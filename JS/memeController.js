@@ -4,13 +4,11 @@ function renderMeme() {
     const meme = getMeme()
     const currImg = drawImg(meme.selectedImgId)
 
-
     renderImg(currImg)
 }
 
 function drawImg(imgId) {
     const img = gImgs.find(img => img.id === imgId)
-
     return img
 }
 
@@ -119,7 +117,6 @@ function renderFrame() {
 
     gCtx.strokeStyle = 'white'
     gCtx.strokeRect(startPosX, startPosY - textHeight, textWidth, textHeight + 10)
-
 }
 
 function onClickedLine(ev) {
@@ -204,7 +201,6 @@ function resetMemeEditor() {
     const elText = document.querySelector('#text')
     elText.value = ''
 
-
     gMeme.lines = [
         {
             id: 0,
@@ -256,6 +252,17 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
 }
+
+function onSave(){
+    console.log(gMeme)
+    const currMeme = gMeme
+    gSavedMemes.push(currMeme)
+    _saveMeme()
+}
+
+
+
+
 
 
 

@@ -1,5 +1,7 @@
 'use strict'
 
+const MEME_STORAGE_KEY = 'memes'
+
 var gImgs = [
     { id: 1, url: 'IMAGES/meme-imgs (square)/1.jpg', keywords: ['funny', 'cat'] },
     { id: 2, url: 'IMAGES/meme-imgs (square)/2.jpg', keywords: ['funny', 'cat'] },
@@ -33,7 +35,7 @@ var gTextOpt = [
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    selectedImg: null,
+    selectedImgUrl: null,
     lines: [
         {
             id: 0,
@@ -51,6 +53,8 @@ var gMeme = {
 }
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+
+var gSavedMemes = []
 
 function getMeme() {
     return gMeme
@@ -182,3 +186,11 @@ function setRandomText(txtId) {
     lines[selectedLineIdx].txt = gTextOpt[txtId].txt
 }
 
+function _saveMeme() {
+    saveToStorage(MEME_STORAGE_KEY, gSavedMemes)
+}
+
+function _loadMemes() {
+    const savedMemes = loadFromStorage(MEME_STORAGE_KEY)
+    return savedMemes
+}

@@ -8,9 +8,15 @@ body {
     flex-direction: column;
     padding: 1em;
     border-radius: 25px;
-    background-color: var( --primary-1);
+    background-color: var(--primary-1);
     box-shadow: 0 0 15px #e3694b;
 
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .gallery-container {
@@ -24,12 +30,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 2em;
-}
-
-
-img {
-    max-width: 100%;
-    box-sizing: border-box;
 }
 
 .canvas-container {

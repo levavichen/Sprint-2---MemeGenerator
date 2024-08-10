@@ -17,14 +17,18 @@
             <nav class="nav">
                 <a onclick="onGallery()" class="gallery-section">Gallery</a>
                 <a onclick="onEditor()" class="editor-section">Meme Editor</a>
+                <a onclick="onShowSavedMeme()" class="saved-meme">Saved Memes</a>
             </nav>
         </header>
 
         <section class="gallery">
+
             <extras>
-                <button onclick="onImFlexible()">I'm Flexible</button>
+                <button class="gallery-extras" onclick="onImFlexible()">I'm Flexible</button>
             </extras>
+
             <div class="gallery-container"></div>
+            
         </section>
 
         <section class="canvas">
@@ -41,14 +45,18 @@
                 </section>
 
                 <section class="lines-actions">
-                    <button class="fa-solid fa-plus" onclick="onAddLine()"></button>
                     <button class="fa-solid fa-repeat" onclick="onSwitchLine()"></button>
+                    <button class="fa-solid fa-plus" onclick="onAddLine()"></button>
                     <button class="fa-solid fa-trash" onclick="onDeleteLine()"></button>
                 </section>
 
-                <section class="text-font-design">
+                <section class="text-design">
                     <button class="increase" onclick="onIncreaseFont()">A +</button>
                     <button class="decrease" onclick="onDecreaseFont()">A -</button>
+                    <button class="fa-solid fa-align-left" onclick="onSetAlignment('left')"></button>
+                    <button class="fa-solid fa-align-center" onclick="onSetAlignment('center')"></button>
+                    <button class="fa-solid fa-align-right" onclick="onSetAlignment('right')"></button>
+
                     <select name="font-family" id="font-family" onchange="onFontSelector()">
                         <option value="Arial">Arial</option>
                         <option value="Calibri">Calibri</option>
@@ -56,7 +64,7 @@
                         <option value="Tahoma">Tahoma</option>
                     </select>
                     <select name="text-size" id="font-size" onchange="onFontSizeSelector()">
-                        <option value="font-size">Font Size</option>
+                        <option value="font-size">Size</option>
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
@@ -71,12 +79,6 @@
                     <button class="fa-solid fa-arrow-down" onclick="onMoveLine('down')"></button>
                 </section>
 
-                <section class="text-alignment">
-                    <button class="fa-solid fa-align-left" onclick="onSetAlignment('left')"></button>
-                    <button class="fa-solid fa-align-center" onclick="onSetAlignment('center')"></button>
-                    <button class="fa-solid fa-align-right" onclick="onSetAlignment('right')"></button>
-                </section>
-
                 <section class="text-color">
                     <section>
                         <label for="strokeClr" class="fa-solid fa-paintbrush"></label>
@@ -87,18 +89,20 @@
                         <label for="fillClr" class="fa-solid fa-fill"></label>
                         <input type="color" id="fillClr" name="fillClr" value="#dcad2e" oninput="onSelectedFillClr()" />
                     </section>
-
                 </section>
 
                 <section class="import-buttons">
                     <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-img.jpg">Download</a>
                     <a onclick="onUploadImg()">Share On Facebook</a>
-
+                    <a onclick="onSave()">Save</a>
                 </section>
-
             </div>
-    </div>
-    </section>
+        </section>
+
+        <section class="saved-memes">
+            <div class="saved-memes-container"></div>
+        </section>
+
     </div>
     </div>
 
@@ -108,6 +112,7 @@
     <script src="JS/main.js"></script>
     <script src="JS/memeController.js"></script>
     <script src="JS/galleryController.js"></script>
+    <script src="JS/savedController.js"></script>
 
 
 </body>

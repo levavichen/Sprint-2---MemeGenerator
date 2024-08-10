@@ -6,3 +6,16 @@
     filter: grayscale(100%);
     cursor: pointer;
 }
+
+img {
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+
+.gallery-extras {
+    height: 50px;
+    width: 100px;
+
+    background-color:  #d08cb6;
+}

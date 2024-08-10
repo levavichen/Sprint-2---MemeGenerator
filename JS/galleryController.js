@@ -25,9 +25,9 @@ function onImFlexible() {
     const randomImgIdx = getRandomInt(1, gImgs.length)
     const randomTxtIdx = getRandomInt(0, gTextOpt.length)
 
+    resetMemeEditor()
     setImg(randomImgIdx)
     setRandomText(randomTxtIdx)
     onEditor()
-
     renderMeme()
 }
