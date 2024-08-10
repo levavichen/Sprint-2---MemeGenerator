@@ -6,7 +6,6 @@ function renderMeme() {
 
 
     renderImg(currImg)
-    renderText()
 }
 
 function drawImg(imgId) {
@@ -34,10 +33,12 @@ function renderImg(img) {
     const elImg = new Image()
     elImg.src = img.url
 
-
+    elImg.onload = () => {
         gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(elImg, 0, 0, elImg.width, elImg.height)
 
+        renderText()
+    }
 }
 
 function onSelectedStrokeClr() {

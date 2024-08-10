@@ -20,6 +20,16 @@ var gImgs = [
     { id: 17, url: 'IMAGES/meme-imgs (square)/17.jpg', keywords: ['funny', 'cat'] },
     { id: 18, url: 'IMAGES/meme-imgs (square)/18.jpg', keywords: ['funny', 'cat'] }
 ]
+
+var gTextOpt = [
+    { txt: 'You are pretty' },
+    { txt: 'I love you' },
+    { txt: 'You Stink' },
+    { txt: 'Kill me now' },
+    { txt: 'Yofi Nechama' },
+    { txt: 'OY OY OY' },
+]
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -165,5 +175,10 @@ function moveLine(direction) {
         lines[selectedLineIdx].y += 10
         return
     }
+}
+
+function setRandomText(txtId) {
+    const { lines, selectedLineIdx } = gMeme
+    lines[selectedLineIdx].txt = gTextOpt[txtId].txt
 }
 

@@ -21,3 +21,13 @@ function onImgSelect(imgId) {
     renderMeme()
 }
 
+function onImFlexible() {
+    const randomImgIdx = getRandomInt(1, gImgs.length)
+    const randomTxtIdx = getRandomInt(0, gTextOpt.length)
+
+    setImg(randomImgIdx)
+    setRandomText(randomTxtIdx)
+    onEditor()
+
+    renderMeme()
+}

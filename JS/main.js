@@ -9,7 +9,6 @@ function onInit() {
 
     renderGallery()
     renderCanvas()
-    renderMeme()
 }
 
 function renderCanvas() {
@@ -17,18 +16,14 @@ function renderCanvas() {
     gCtx = gElCanvas.getContext('2d')
 
     window.addEventListener('resize', resizeCanvas)
-    renderMeme()
 }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    console.log(elContainer)
     gElCanvas.width = elContainer.clientWidth
     gElCanvas.height = elContainer.clientHeight
 
     renderMeme()
-
-
 }
 
 function onGallery() {
